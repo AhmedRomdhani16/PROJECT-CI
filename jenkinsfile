@@ -1,7 +1,9 @@
 pipeline {    
     options { skipDefaultCheckout() }
      agent {label 'master'} 
-     environment {PATH ="/usr/lib/appache-maven-3.6.8:$PATH"}
+     tools {
+     maven 'mvn'
+     }
       
     stages { 
      stage('SCM') {
