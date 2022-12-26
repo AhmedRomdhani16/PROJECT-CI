@@ -5,7 +5,8 @@ pipeline {
     stages { 
      stage('SCM') {
             steps {
-                git 'http://github.com/AhmedRomdhani16/PROJECT-CI.git'
+               
+                git  branch: 'main', url: 'https://github.com/AhmedRomdhani16/PROJECT-CI.git'
                  
             }
         }
