@@ -38,7 +38,7 @@ pipeline {
                 withSonarQubeEnv(installationName:'sonar') {
                   
                         
-                        sh ' mvn -f  sonar:sonar -Dsonar.projectKey=CIPROJECT '
+                        sh ' mvn  sonar:sonar -Dsonar.projectKey=CIPROJECT '
                     
                 
             }
