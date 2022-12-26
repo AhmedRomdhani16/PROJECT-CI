@@ -1,6 +1,7 @@
 pipeline {    
     options { skipDefaultCheckout() }
      agent {label 'master'} 
+     environment {PATH =/usr/bin/mvn:$PATH}
       
     stages { 
      stage('SCM') {
@@ -10,6 +11,10 @@ pipeline {
                  
             }
         }
-        
+     stage('build'){
+            steps {
+            sh "mvn clean install"
+            }
+            }
 }
 }
