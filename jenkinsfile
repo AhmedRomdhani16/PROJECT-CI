@@ -40,7 +40,7 @@ pipeline {
                         
                         sh ' mvn -f  sonar:sonar -Dsonar.projectKey=CIPROJECT '
                     
-                }
+                
             }
         }
         
