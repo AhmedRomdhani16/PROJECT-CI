@@ -27,5 +27,24 @@ pipeline {
             
             }
             }
+        
+        
+        stage(' SonarQube analysis') {
+            steps {
+            script {
+                    scannerHome = tool 'sonar';
+                }
+   
+                withSonarQubeEnv(installationName:'sonar') {
+                  
+                        
+                        sh ' mvn -f  sonar:sonar -Dsonar.projectKey=CIPROJECT '
+                    
+                }
+            }
+        }
+        
+}
+            
 }
 }
