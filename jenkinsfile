@@ -1,6 +1,6 @@
 pipeline {    
     options { skipDefaultCheckout() }
-     agent {label 'jenkinsmaster'} 
+     agent {label 'maître'} 
       
     stages { 
      stage('SCM') {
