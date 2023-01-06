@@ -64,7 +64,7 @@ pipeline {
                         nexusArtifactUploader(
                             nexusVersion: NEXUS_VERSION,
                             protocol: 'http',
-                            nexusUrl: '192.168.43.230:808',
+                            nexusUrl: '192.168.43.230:8081',
                             groupId: pom.groupId,
                             version: pom.version,
                             repository: NEXUS_REPOSITORY,
