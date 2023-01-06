@@ -89,11 +89,12 @@ pipeline {
 
 }
   stage('BUILD Image Frontend') {
+           steps{
            script{
                     sh 'docker build -t javatechie/devops-integration .'
                 }
                 }
-        
+        }
         
         
         
