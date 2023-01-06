@@ -89,17 +89,10 @@ pipeline {
 
 }
   stage('BUILD Image Frontend') {
-            steps{
-                checkout scm                
-                
-
-                echo "#################### Build Image Frontend  #################"
-                sh '''  
-                      docker build -t shanem/spring-petclinic:latest . 
-                       
-                '''
-            }
-        }
+           script{
+                    sh 'docker build -t javatechie/devops-integration .'
+                }
+                }
         
         
         
