@@ -96,20 +96,7 @@ pipeline {
         
         
         
-      stage('Build image') {
-      steps{
-       dockerImage = docker.build("ahmed991/backend:latest")
-    }
-    }
     
- stage('Push image') {
-     steps{
-     withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-        dockerImage.push()
-        }
-    }    
-        }
-        
         
         
 }
