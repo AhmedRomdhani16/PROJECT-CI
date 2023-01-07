@@ -13,7 +13,7 @@ pipeline {
         registry = "ahmed991/backend"
         registryCredential = 'dockerhub'
         NAME = "ahmed991/backend"
-        VERSION = "${env.BUILD_ID}-"
+        VERSION = "${env.BUILD_ID}"
         IMAGE = "${NAME}:${VERSION}"
         
     }
