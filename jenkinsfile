@@ -94,15 +94,15 @@ pipeline {
                 }
         }
         
-        stage('PUSH Image Frontend') {
-            steps{
-                echo "#################### Push Image ms-frontend to azurecr.io #################"
-                sh ''' 
-
-                        docker push ahmed991/backend:latest
-                '''
-            }
-        }
+     stage('Deploy Image') {
+     steps{
+     script {
+     docker.withRegistry( '', registryCredential ) 
+     {dockerImage.push("ahmed991/backend ")dockerImage.push('latest')
+     }
+     }
+     }
+     }
         
         
         
