@@ -89,7 +89,7 @@ pipeline {
   stage('BUILD Image Frontend') {
            steps{
            script{
-                    sh 'docker build -t ahmed991/backend:$BUILD_NUMBER.'
+                    sh 'docker build -t ahmed991/backend:${BUILD_NUMBER}.'
                 }
                 }
         }
@@ -101,7 +101,7 @@ pipeline {
                    sh 'docker login -u ahmed991 -p ${dockerpwd}'
 
 }
-                   sh 'docker push ahmed991/backend:$BUILD_NUMBER'
+                   sh 'docker push ahmed991/backend:${BUILD_NUMBER}'
                 }
             }
         }
