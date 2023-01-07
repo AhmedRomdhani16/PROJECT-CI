@@ -10,6 +10,9 @@ pipeline {
         NEXUS_URL = "192.168.43.230:8081"
         NEXUS_REPOSITORY = "DEVOPS"
         NEXUS_CREDENTIAL_ID = "nexusJenkins"
+        registry = "ahmed991/backend"
+        registryCredential = 'dockerhub'
+        
     }
       
     stages { 
