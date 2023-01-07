@@ -12,6 +12,9 @@ pipeline {
         NEXUS_CREDENTIAL_ID = "nexusJenkins"
         registry = "ahmed991/backend"
         registryCredential = 'dockerhub'
+        NAME = "ahmed991/backend"
+        VERSION = "${env.BUILD_ID}-"
+        IMAGE = "${NAME}:${VERSION}"
         
     }
       
@@ -89,7 +92,8 @@ pipeline {
   stage('BUILD Image Frontend') {
            steps{
            script{
-                    sh ' docker build -t ${image name}:${tag} .'
+                    sh ' docker build -t ${NAME} .'
+                    sh "docker tag ${NAME}:latest ${NAME}:${VERSION}"
                 }
                 }
         }
@@ -101,7 +105,7 @@ pipeline {
                    sh 'docker login -u ahmed991 -p ${dockerpwd}'
 
 }
-                   sh 'docker push ${image name}:${tag}'
+                   sh 'docker push ${NAME}:${VERSION}'
                 }
             }
         }
