@@ -95,15 +95,20 @@ pipeline {
         }
         
         
-        stage('Upload Image to DockerHub'){
-	 steps{
-     	      sh 'echo $dockerhub_PSW | docker login -u ahmed991 --password-stdin '
-    	  
-    	  sh 'docker push ahmed991/backend:1.0.0'
-  	}
-	}
-    
         
+      stage('Build image') {
+      steps{
+       dockerImage = docker.build("ahmed991/backend:latest")
+    }
+    }
+    
+ stage('Push image') {
+     steps{
+     withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+        dockerImage.push()
+        }
+    }    
+        }
         
         
         
