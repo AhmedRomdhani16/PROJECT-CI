@@ -96,11 +96,13 @@ pipeline {
         
         
         stage('Upload Image to DockerHub'){
+	 steps{
      	        withCredentials([string(credentialsId: 'docker-pass', variable: 'docker-hub')]) {
 			sh "docker login -u username -p ${docker-hub}"
     	  }
     	  sh 'docker push my_repo/test-app:1.0.0'
   	}
+	}
     
         
         
