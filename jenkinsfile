@@ -94,12 +94,7 @@ pipeline {
                 }
         }
         
-     stage('Upload Image to DockerHub'){
-     	        withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-			sh "docker login -u username -p ${dockerhub}"
-    	  }
-    	  sh 'docker push ahmed991/backend:1.0.0'
-  	}
+    
         
         
         
