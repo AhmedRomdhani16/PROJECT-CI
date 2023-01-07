@@ -94,6 +94,18 @@ pipeline {
                 }
         }
         
+         stage('Push image to Hub'){
+            steps{
+                script{
+                   withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerpwd')]) {
+                   sh 'docker login -u ahmed991 -p ${dockerpwd}'
+
+}
+                   sh 'docker push ahmed991/backend:1.0.0 '
+                }
+            }
+        }
+        
         
         
     
