@@ -89,11 +89,20 @@ pipeline {
   stage('BUILD Image Frontend') {
            steps{
            script{
-                    sh 'docker build -t javatechie/devops-integration .'
+                    sh 'docker build -t ahmed991/backend .'
                 }
                 }
         }
         
+        stage('PUSH Image Frontend') {
+            steps{
+                echo "#################### Push Image ms-frontend to azurecr.io #################"
+                sh ''' 
+
+                        docker push ahmed991/backend:latest
+                '''
+            }
+        }
         
         
         
