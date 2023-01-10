@@ -110,6 +110,15 @@ pipeline {
             }
         }
         
+        stage('Dockercompose') {
+           steps{
+           script{
+                    sh ' docker-compose up -d .'
+                    
+                }
+                }
+        }
+        
         
         
     
