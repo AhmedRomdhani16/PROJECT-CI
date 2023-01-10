@@ -110,10 +110,10 @@ pipeline {
             }
         }
         
-        stage('Dockercompose') {
+        stage('Email') {
            steps{
            script{
-                    sh ' docker-compose up -d .'
+                   emailext body: '', subject: '', to: 'ahmed.romdhani@esprit.tn'
                     
                 }
                 }
