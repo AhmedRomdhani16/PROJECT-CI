@@ -113,7 +113,7 @@ pipeline {
         stage('Email') {
            steps{
            script{
-                   emailext body: '', subject: '', to: 'ahmed.romdhani@esprit.tn'
+                   emailext body: 'job completed successfully', subject: 'build success', to: 'ahmed.romdhani@esprit.tn'
                     
                 }
                 }
