@@ -89,7 +89,7 @@ pipeline {
 }
 
 }
-  stage('BUILD Image Frontend') {
+  stage('BUILD Image Backend') {
            steps{
            script{
                     sh ' docker build -t ${NAME} .'
@@ -98,7 +98,7 @@ pipeline {
                 }
         }
         
-         stage('Push image to Hub'){
+         stage('Push image to Docker Hub'){
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerpwd')]) {
@@ -113,7 +113,7 @@ pipeline {
         stage('Email') {
            steps{
            script{
-                   emailext body: 'job completed successfully', subject: 'build success', to: 'ahmed.romdhani@esprit.tn'
+                   emailext body: 'the pipline for backend app is  completed successfully', subject: 'Backend build success', to: 'ahmed.romdhani@esprit.tn'
                     
                 }
                 }
